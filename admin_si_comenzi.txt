@@ -1,0 +1,6 @@
+admin@test.com
+12345678
+
+npm start
+
+npx expo start --tunnel
