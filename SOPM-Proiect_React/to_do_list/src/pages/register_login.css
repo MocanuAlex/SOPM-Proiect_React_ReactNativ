@@ -1,0 +1,131 @@
+/* =========================================
+   STILURI PENTRU LOGIN & REGISTER
+   Acest fișier folosește variabilele globale din App.css
+   (ex: var(--card-bg), var(--highlight-color))
+   ========================================= */
+
+.auth-container {
+  max-width: 400px;
+  margin: 60px auto; /* Centrat pe pagină */
+  padding: 40px;
+  background-color: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* Oprirea selecției textului pe container (ca în restul aplicației) */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Efect fin de plutire la hover */
+.auth-container:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+/* Titlul (Login / Înregistrare) */
+.auth-container h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: var(--text-color);
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+/* --- INPUT-URI --- */
+.auth-container input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  border: 1px solid var(--input-border);
+  border-radius: 12px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+
+  /* IMPORTANTE: Permitem selecția textului în input ca să poți edita */
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* Efect focus (inel albastru) */
+.auth-container input:focus {
+  border-color: var(--input-focus);
+  background-color: var(--card-bg);
+  box-shadow: 0 0 0 4px rgba(66, 153, 225, 0.15);
+  transform: translateY(-1px);
+}
+
+/* --- BUTONUL PRINCIPAL --- */
+.auth-container button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: var(--highlight-color); /* Folosește albastrul temei */
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+
+  /* Animație elastică (Zoom) */
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.auth-container button:hover {
+  transform: scale(1.03); /* Mărire ușoară */
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  filter: brightness(1.1);
+}
+
+.auth-container button:active {
+  transform: scale(0.97); /* Efect de apăsare */
+}
+
+/* --- LINK-URI ȘI TEXT --- */
+.auth-container p {
+  color: var(--sub-text-color);
+  font-size: 0.95rem;
+  margin-top: 15px;
+}
+
+.auth-container a {
+  color: var(--highlight-color);
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 5px;
+  transition: color 0.2s;
+}
+
+.auth-container a:hover {
+  text-decoration: underline;
+  color: var(--input-focus);
+}
+
+/* --- MESAJE DE EROARE --- */
+.auth-container p[style*="color: red"] {
+  background-color: rgba(229, 62, 62, 0.1);
+  color: var(--danger-color) !important;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  border: 1px solid rgba(229, 62, 62, 0.2);
+}
+
+/* --- RESPONSIVE (Mobil) --- */
+@media (max-width: 480px) {
+  .auth-container {
+    margin: 40px 20px;
+    padding: 30px 20px;
+  }
+}

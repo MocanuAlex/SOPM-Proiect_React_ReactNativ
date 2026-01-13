@@ -1,0 +1,433 @@
+/* src/App.css */
+
+:root {
+  /* --- Light Mode Palette --- */
+  --bg-color: #dbe2ea;           
+  --card-bg: #f8faff;
+  --text-color: #1a202c;         
+  --sub-text-color: #4a5568;
+  
+  --input-bg: #edf2f7;
+  --input-border: #cbd5e0;       
+  --input-focus: #3182ce;        
+  
+  --highlight-bg: #e2e8f0;
+  --highlight-color: #2b6cb0;
+  
+  --progress-bg: #cbd5e0;        
+  --progress-fill: #48bb78;      
+  
+  --danger-color: #e53e3e; 
+  --warning-color: #ecc94b; 
+  --success-color: #38a169; 
+  
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.08);
+  --shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.15), 0 4px 6px -2px rgba(0,0,0,0.15);
+}
+
+.theme-dark {
+  /* --- Dark Mode Palette --- */
+  --bg-color: #1a202c;           
+  --card-bg: #2d3748;
+  --text-color: #f7fafc;
+  --sub-text-color: #a0aec0;
+  
+  --input-bg: #4a5568;
+  --input-border: #4a5568;
+  --input-focus: #63b3ed;
+  
+  --highlight-bg: #2c5282;
+  --highlight-color: #90cdf4;
+  
+  --progress-bg: rgba(0, 0, 0, 0.4); 
+  --progress-fill: #48bb78;
+  
+  --danger-color: #fc8181;
+  --warning-color: #f6e05e;
+  --success-color: #68d391;
+  
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.4);
+  --shadow-hover: 0 10px 15px rgba(0,0,0,0.5);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased; 
+  user-select: none;         
+  overflow-x: hidden;
+  font-size: 16px;
+}
+
+input, textarea {
+  user-select: text;
+}
+
+/* --- Container Principal Dashboard --- */
+.container {
+  width: 95%;
+  max-width: 1400px; 
+  margin: 40px auto;
+  padding: 40px;
+  background: var(--card-bg);
+  border-radius: 24px;
+  box-shadow: var(--shadow-md);
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* --- HEADER --- */
+.header-actions {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  display: flex;
+  gap: 15px;
+}
+
+/* --- GRID LAYOUT (DESKTOP) --- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr; 
+  gap: 80px; 
+  margin-top: 0px; 
+  align-items: center; 
+}
+
+/* --- Panouri --- */
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  /* Pe desktop împingem dreapta jos ca să nu intre peste butoane */
+  margin-top: 90px; 
+}
+
+/* --- Typography --- */
+.main-title {
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 5px;
+  font-weight: 800;
+  font-size: 3.5rem;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+}
+
+.user-id-display {
+  display: inline-block;
+  box-sizing: border-box;
+  background-color: var(--highlight-bg);
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--text-color);
+  border: 1px solid rgba(0,0,0,0.05);
+  align-self: center;
+}
+
+.id-mono {
+  font-family: 'Consolas', monospace;
+  font-weight: 700;
+  color: var(--highlight-color);
+}
+
+/* --- BUTOANE HEADER --- */
+.btn-theme {
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-color);
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.btn-theme:hover {
+  background-color: var(--card-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  border-color: var(--highlight-color);
+  color: var(--highlight-color);
+}
+
+.btn-theme:active {
+  transform: translateY(0);
+}
+
+/* --- FORMULAR --- */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+  background-color: var(--input-bg);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.controls-container {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  background-color: var(--input-bg);
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.form-input, .control-select, .priority-select, .status-select {
+  padding: 14px 18px;
+  border: 1px solid var(--input-border);
+  border-radius: 12px;
+  font-size: 1.1rem;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  transition: all 0.2s ease;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-input:focus, .control-select:focus {
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 4px rgba(66, 153, 225, 0.2);
+}
+
+/* Time Row */
+.time-row {
+  display: flex;
+  gap: 20px;
+}
+
+.time-input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.time-input-label {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: var(--sub-text-color);
+  margin-left: 2px;
+}
+
+/* Buton Adaugă */
+.action-row {
+  display: flex;
+  gap: 15px;
+  align-items: stretch;
+  margin-top: 10px;
+}
+
+.btn-add {
+  background-color: var(--success-color);
+  color: white;
+  border: none;
+  padding: 0 30px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex: 1;
+  transition: transform 0.2s ease, filter 0.2s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-add:hover { transform: translateY(-2px); filter: brightness(1.05); }
+.btn-add:active { transform: translateY(0); }
+
+/* Progress Bar */
+.stats-container {
+  background-color: var(--input-bg);
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+}
+.progress-bar-bg {
+  height: 12px;
+  background-color: var(--progress-bg); 
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--success-color), #4fd1c5);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.progress-text {
+  font-weight: 600;
+  color: var(--sub-text-color);
+  font-size: 1rem;
+}
+
+/* Task List */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 400px;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  background-color: var(--input-bg);
+  border-radius: 16px;
+  border-left: 12px solid;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease; 
+}
+
+.task:hover { transform: translateX(5px); }
+
+.task-info { flex: 1; padding-right: 20px; }
+
+/* Fonturi Listă Activități */
+.task-text { 
+  font-weight: 800; 
+  font-size: 1.35rem;
+  margin-bottom: 8px; 
+  color: var(--text-color); 
+}
+.deadline { 
+  font-size: 1rem;
+  color: var(--sub-text-color); 
+  margin-bottom: 12px; 
+}
+
+/* Badges */
+.priority-info, .time-range-badge {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.priority-info { color: white !important; }
+.time-range-badge {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  margin-left: 10px;
+  border: 1px solid var(--input-border);
+}
+.theme-dark .time-range-badge { background-color: rgba(255,255,255,0.1); color: white; border: none;}
+
+/* Priority Colors */
+.task.priority-high .priority-info { background-color: var(--danger-color); }
+.task.priority-medium .priority-info { background-color: var(--warning-color); color: #333 !important; }
+.task.priority-low .priority-info { background-color: var(--success-color); }
+.priority-high { border-left-color: var(--danger-color); }
+.priority-medium { border-left-color: var(--warning-color); }
+.priority-low { border-left-color: var(--success-color); }
+
+/* --- BUTOANE ACȚIUNI LISTĂ --- */
+.actions { display: flex; gap: 12px; align-items: center;}
+.btn-edit, .btn-delete { 
+  background: transparent; border: none; cursor: pointer; font-size: 1.4rem;
+  padding: 5px; transition: 0.2s;
+}
+.btn-edit:hover { color: var(--warning-color); transform: scale(1.1); }
+.btn-delete:hover { color: var(--danger-color); transform: scale(1.1); }
+
+/* --- BUTOANE EDITARE --- */
+.btn-save, .btn-cancel {
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-save { background-color: var(--success-color); }
+.btn-save:hover { background-color: #2f855a; transform: translateY(-2px); box-shadow: 0 6px 10px rgba(0,0,0,0.2); }
+.btn-save:active { transform: translateY(0); }
+
+.btn-cancel { background-color: var(--danger-color); }
+.btn-cancel:hover { background-color: #c53030; transform: translateY(-2px); box-shadow: 0 6px 10px rgba(0,0,0,0.2); }
+.btn-cancel:active { transform: translateY(0); }
+
+
+.empty-list-message {
+  text-align: center;
+  padding: 50px;
+  color: var(--sub-text-color);
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN (MOBIL / TABLETĂ)
+   Aceste reguli suprascriu setările de mai sus pe ecrane mici
+   ============================================================ */
+@media (max-width: 1100px) {
+  
+  /* 1. Transformăm grila într-o singură coloană */
+  .dashboard-grid { 
+    grid-template-columns: 1fr; 
+    gap: 40px; 
+    /* Pe mobil nu avem nevoie de spațiu sus, pentru că headerul e "resetat" */
+    margin-top: 40px; 
+  }
+
+  /* 2. Resetăm poziția Header-ului (nu mai e absolut) */
+  .header-actions { 
+    position: relative; 
+    top: 0; 
+    right: 0; 
+    justify-content: flex-end; 
+    margin-bottom: 20px;
+  }
+
+  /* 3. Resetăm containerul să ocupe tot ecranul */
+  .container { 
+    padding: 20px; 
+    width: 100%; 
+    max-width: 100%; 
+    border-radius: 0; 
+    margin: 0;
+    box-shadow: none; 
+  }
+
+  .main-title { font-size: 2.8rem; }
+  
+  /* 4. IMPORTANT: Resetăm marginea din dreapta */
+  /* Pe mobil, fiind o singură coloană, nu vrem acel spațiu de 90px */
+  .right-panel {
+    margin-top: 0; 
+  }
+}
